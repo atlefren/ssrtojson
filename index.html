@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+</head>
+<body>
+
+<div id="map" style="width: 500px; height: 500px;"></div>
+<label for="name">Place name: </label>
+<input type="text" id="name">
+
+<button type="button" id="search">Search</button>
+
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script type="text/javascript" src="ssrjson.js"></script>
+
+<script type="text/javascript">
+    
+    
+    (function () {
+      'use strict';
+      
+        var map = L.map('map').setView([60.0, 10], 6);
+    
+        // add an OpenStreetMap tile layer
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);        
+
+        var results = L.geoJson().addTo(map);
+        
+        function showResult (data) {
+            console.log(data);
+            results.clearLayers();
+            results.addData(data.geoJson);
+        }
+
+        var ssrSearch = new SSRSearch();
+
+        var searchBtn = document.getElementById('search');
+        searchBtn.addEventListener('click', function (event) {
+            var query = document.getElementById('name').value;
+            if (query !== '') {
+                var bbox = map.getBounds().toBBoxString();
+                ssrSearch.search(
+                    {query: query, bbox: bbox},
+                    showResult,
+                    function (data) { alert('an error ocurred!'); }
+                );
+            }
+        });
+    }());
+</script>
+
+
+</body>
+</html>
