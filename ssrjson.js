@@ -210,13 +210,16 @@ var SSRSearch = function () {
     };
 
     Searcher.prototype.createUrl = function (params) {
-        if (!params.page) {
-            params.page = 0;
-        }
+        params = mergeDicts({
+            page: 0,
+            maxRows: 9,
+            epsg: 4258
+        }, params);
+        
         var queryParams = {
             navn: params.query,
-            antPerSide: 9,
-            epsgKode: '4258',
+            antPerSide: params.maxRows,
+            epsgKode: params.epsg,
             eksakteForst: 'true',
             side: params.page
         };
