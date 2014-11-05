@@ -7,6 +7,10 @@ var SSRSearch = function () {
     var nativeBind = Function.prototype.bind;
     var slice = Array.prototype.slice;
     var Ctor = function () {};
+    function isObject(obj) {
+        var type = typeof obj;
+        return type === 'function' || type === 'object' && !!obj;
+    }
     var bind = function (func, context) {
         var args, bound;
         if (nativeBind && func.bind === nativeBind) { return nativeBind.apply(func, slice.call(arguments, 1)); }
@@ -17,7 +21,7 @@ var SSRSearch = function () {
             var self = new Ctor;
             Ctor.prototype = null;
             var result = func.apply(self, args.concat(slice.call(arguments)));
-            if (_.isObject(result)) { return result; }
+            if (isObject(result)) { return result; }
             return self;
         };
         return bound;
