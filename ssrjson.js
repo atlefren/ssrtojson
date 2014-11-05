@@ -32,10 +32,10 @@ var SSRSearch = function () {
         var key;
         for (key in params) {
             if (params.hasOwnProperty(key)) {
-                list.push(key + "=" + params[key]);
+                list.push(key + '=' + params[key]);
             }
         }
-        return list.join("&");
+        return list.join('&');
     }
 
     var ssrSok2JSON = function (xml) {
