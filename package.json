@@ -1,5 +1,4 @@
 {
-  "version": "1.0.11",
   "name": "ssrtojson",
   "description": "SSR search as JSON",
   "license": "MIT",

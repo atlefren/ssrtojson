@@ -48,15 +48,15 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-sync-pkg');
+    //grunt.loadNpmTasks('grunt-sync-pkg');
     grunt.loadNpmTasks('grunt-release');
     grunt.loadNpmTasks('grunt-bump');
     grunt.loadNpmTasks('grunt-contrib-clean');
 
     grunt.registerTask('default', ['concat', 'uglify']);
     grunt.registerTask('publish', ['publish:patch']);
-    grunt.registerTask('publish:patch', ['clean', 'bump:patch', 'sync', 'release']);
-    grunt.registerTask('publish:minor', ['clean', 'bump:minor', 'sync', 'release']);
-    grunt.registerTask('publish:major', ['clean', 'bump:major', 'sync', 'release']);
+    grunt.registerTask('publish:patch', ['clean', 'bump:patch', 'release']);
+    grunt.registerTask('publish:minor', ['clean', 'bump:minor', 'release']);
+    grunt.registerTask('publish:major', ['clean', 'bump:major', 'release']);
 
 };
