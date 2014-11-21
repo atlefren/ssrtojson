@@ -25,7 +25,17 @@ module.exports = function(grunt) {
         },
         release: {
             options: {
-                npm: false
+                npm: false,
+                bump: false,
+                commitMessage: 'Release <%= version %>'
+            }
+        },
+        bump: {
+            options: {
+                updateConfigs: ['pkg'],
+                commit: false,
+                createTag: false,
+                push: false
             }
         }
     });
@@ -34,6 +44,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-sync-pkg');
     grunt.loadNpmTasks('grunt-release');
+    grunt.loadNpmTasks('grunt-bump');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+
     grunt.registerTask('default', ['concat', 'uglify']);
+    grunt.registerTask('publish', ['publish:patch']);
+    grunt.registerTask('publish:patch', ['clean', 'bump:patch', 'sync', 'release']);
+    grunt.registerTask('publish:minor', ['clean', 'bump:minor', 'sync', 'release']);
+    grunt.registerTask('publish:major', ['clean', 'bump:major', 'sync', 'release']);
 
 };
