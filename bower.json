@@ -1,6 +1,6 @@
 {
   "name": "ssrtojson",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "homepage": "https://github.com/atlefren/ssrtojson",
   "authors": [
     "Atle Frenvik Sveen <atle.sveen@gmail.com>"
@@ -19,6 +19,6 @@
     "index.html"
   ],
   "main": [
-    "dist/ssrjson.js"
+    "tull"
   ]
 }

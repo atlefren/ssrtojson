@@ -54,8 +54,8 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', ['concat', 'uglify']);
     grunt.registerTask('publish', ['publish:patch']);
-    grunt.registerTask('publish:patch', ['clean', 'bump:patch', 'sync', 'release']);
-    grunt.registerTask('publish:minor', ['clean', 'bump:minor', 'sync', 'release']);
-    grunt.registerTask('publish:major', ['clean', 'bump:major', 'sync', 'release']);
+    grunt.registerTask('publish:patch', ['clean', 'default', 'bump:patch', 'sync', 'release']);
+    grunt.registerTask('publish:minor', ['clean', 'default', 'bump:minor', 'sync', 'release']);
+    grunt.registerTask('publish:major', ['clean', 'default', 'bump:major', 'sync', 'release']);
 
 };
