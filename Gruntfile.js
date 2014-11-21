@@ -37,6 +37,11 @@ module.exports = function(grunt) {
                 createTag: false,
                 push: false
             }
+        },
+        clean: {
+            options: {
+                clean: ["dist"]
+            }
         }
     });
 
