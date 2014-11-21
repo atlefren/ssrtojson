@@ -1,14 +1,14 @@
 {
   "name": "ssrtojson",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "homepage": "https://github.com/atlefren/ssrtojson",
   "authors": [
     "Atle Frenvik Sveen <atle.sveen@gmail.com>"
   ],
   "license": "MIT",
   "ignore": [
-    "dist",
     "**/.*",
+    "src",
     "node_modules",
     "bower_components",
     "test",
@@ -19,6 +19,6 @@
     "index.html"
   ],
   "main": [
-    "tull"
+    "dist/ssrjson.js"
   ]
 }
