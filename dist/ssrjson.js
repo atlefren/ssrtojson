@@ -2,6 +2,9 @@
 
 /*oh hi 100*/
 
+
+/* ny kommentar* /
+
 var SSRSearch = function () {
     'use strict';
 

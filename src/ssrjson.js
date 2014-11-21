@@ -3,7 +3,7 @@
 /*oh hi 100*/
 
 
-/* ny kommentar* /
+/* ny kommentar */
 
 var SSRSearch = function () {
     'use strict';
