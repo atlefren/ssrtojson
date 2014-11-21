@@ -73,9 +73,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-git');
 
     grunt.registerTask('default', ['concat', 'uglify']);
+
+    grunt.registerTask('buildcommit', ['clean', 'default', 'gitadd', 'gitcommit']);
+
+
     grunt.registerTask('publish', ['publish:patch']);
-    grunt.registerTask('publish:patch', ['clean', 'default', 'gitadd', 'gitcommit', 'bump:patch', 'sync', 'release']);
-    grunt.registerTask('publish:minor', ['clean', 'default', 'gitadd', 'gitcommit', 'bump:minor', 'sync', 'release']);
-    grunt.registerTask('publish:major', ['clean', 'default', 'gitadd', 'gitcommit', 'bump:major', 'sync', 'release']);
+    grunt.registerTask('publish:patch', ['buildcommit', 'bump:patch', 'sync', 'release']);
+    grunt.registerTask('publish:minor', ['buildcommit', 'bump:minor', 'sync', 'release']);
+    grunt.registerTask('publish:major', ['buildcommit', 'bump:major', 'sync', 'release']);
 
 };
