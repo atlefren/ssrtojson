@@ -1,6 +1,6 @@
 {
   "name": "ssrtojson",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "homepage": "https://github.com/atlefren/ssrtojson",
   "authors": [
     "Atle Frenvik Sveen <atle.sveen@gmail.com>"
@@ -12,6 +12,9 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "Gruntfile.js",
+    "README.md",
+    "package.json"
   ]
 }
