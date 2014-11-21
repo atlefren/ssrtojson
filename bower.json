@@ -15,6 +15,7 @@
     "tests",
     "Gruntfile.js",
     "README.md",
-    "package.json"
+    "package.json",
+    "index.html"
   ]
 }
