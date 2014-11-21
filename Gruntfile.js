@@ -53,7 +53,7 @@ module.exports = function(grunt) {
         gitcommit: {
             task: {
                 options: {
-                    message: 'Build for  <%= version %>',
+                    message: 'Build for new version',
                     noVerify: true,
                     noStatus: false
                 },
