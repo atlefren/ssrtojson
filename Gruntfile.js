@@ -78,8 +78,8 @@ module.exports = function(grunt) {
 
 
     grunt.registerTask('publish', ['publish:patch']);
-    grunt.registerTask('publish:patch', ['buildcommit', 'bump:patch', 'sync', 'release']);
-    grunt.registerTask('publish:minor', ['buildcommit', 'bump:minor', 'sync', 'release']);
-    grunt.registerTask('publish:major', ['buildcommit', 'bump:major', 'sync', 'release']);
+    grunt.registerTask('publish:patch', ['buildcommit', 'bump:patch', 'release']);
+    grunt.registerTask('publish:minor', ['buildcommit', 'bump:minor', 'release']);
+    grunt.registerTask('publish:major', ['buildcommit', 'bump:major', 'release']);
 
 };
