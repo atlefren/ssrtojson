@@ -42,6 +42,25 @@ module.exports = function(grunt) {
             options: {
                 clean: ["dist"]
             }
+        },
+        gitadd: {
+            task: {
+                files: {
+                    src: ['dist/*']
+                }
+            }
+        },
+        gitcommit: {
+            task: {
+                options: {
+                    message: 'Build for  <%= version %>',
+                    noVerify: true,
+                    noStatus: false
+                },
+                files: {
+                    src: ['dist/*']
+                }
+            }
         }
     });
 
@@ -51,11 +70,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-release');
     grunt.loadNpmTasks('grunt-bump');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-git');
 
     grunt.registerTask('default', ['concat', 'uglify']);
     grunt.registerTask('publish', ['publish:patch']);
-    grunt.registerTask('publish:patch', ['clean', 'default', 'bump:patch', 'sync', 'release']);
-    grunt.registerTask('publish:minor', ['clean', 'default', 'bump:minor', 'sync', 'release']);
-    grunt.registerTask('publish:major', ['clean', 'default', 'bump:major', 'sync', 'release']);
+    grunt.registerTask('publish:patch', ['clean', 'default', 'gitadd', 'bump:patch', 'sync', 'release']);
+    grunt.registerTask('publish:minor', ['clean', 'default', 'gitadd' 'bump:minor', 'sync', 'release']);
+    grunt.registerTask('publish:major', ['clean', 'default', 'gitadd' 'bump:major', 'sync', 'release']);
 
 };
