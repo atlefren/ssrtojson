@@ -22,6 +22,11 @@ module.exports = function(grunt) {
                     'dist/ssrjson.min.js': ['<%= concat.core.dest %>']
                 }
             }
+        },
+        release: {
+            options: {
+                npm: false
+            }
         }
     });
 
