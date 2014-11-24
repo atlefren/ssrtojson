@@ -29,5 +29,9 @@ bbox: 'southwest_lng,southwest_lat,northeast_lng,northeast_lat'
 `
 the bbox is optional.
 
-
+Build and release
+-----------------
+Build with the default grunt task.
+Release using https://www.npmjs.org/package/grunt-bump-build-git
+(remember to push tag after)
 
