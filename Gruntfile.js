@@ -23,67 +23,14 @@ module.exports = function(grunt) {
                 }
             }
         },
-        release: {
-            options: {
-                npm: false,
-                bump: false,
-                commitMessage: 'Release <%= version %>'
-            }
-        },
-/*        bump: {
-            options: {
-                updateConfigs: ['pkg'],
-                commit: false,
-                createTag: false,
-                push: false
-            }
-        },
- */
         build: {
-            tasks: ['default']
-        },
-        clean: {
-            options: {
-                clean: ["dist"]
-            }
-        },
-        gitadd: {
-            task: {
-                files: {
-                    src: ['dist/*']
-                }
-            }
-        },
-        gitcommit: {
-            task: {
-                options: {
-                    message: 'Build for new version',
-                    noVerify: true,
-                    noStatus: false
-                },
-                files: {
-                    src: ['dist/*']
-                }
-            }
+            tasks: ['default'],
+            gitAdd: '-all'
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-release');
-    //grunt.loadNpmTasks('grunt-bump');
     grunt.loadNpmTasks('grunt-bump-build-git');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-git');
 
     grunt.registerTask('default', ['concat', 'uglify']);
-
-    grunt.registerTask('buildcommit', ['clean', 'default', 'gitadd', 'gitcommit']);
-
-
-    grunt.registerTask('publish', ['publish:patch']);
-    grunt.registerTask('publish:patch', ['buildcommit', 'bump:patch', 'release']);
-    grunt.registerTask('publish:minor', ['buildcommit', 'bump:minor', 'release']);
-    grunt.registerTask('publish:major', ['buildcommit', 'bump:major', 'release']);
-
 };
