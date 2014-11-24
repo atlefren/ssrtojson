@@ -8,9 +8,9 @@ module.exports = function(grunt) {
             },
             core: {
                 src: [
-                    'src/ssrjson.js'
+                    'src/ssrtojson.js'
                 ],
-                dest: 'dist/ssrjson.js'
+                dest: 'dist/ssrtojson.js'
             }
         },
         uglify: {
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
         },
         build: {
             tasks: ['default'],
-            gitAdd: '--all'
+            gitAdd: 'package.json bower.json dist/*'
         }
     });
 

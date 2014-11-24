@@ -13,12 +13,10 @@
     "test",
     "tests",
     "Gruntfile.js",
-    "README.md",
-    "package.json",
     "index.html"
   ],
   "main": [
-    "tull"
+    "dist/ssrtojson.js"
   ],
   "version": "1.1.1"
 }
