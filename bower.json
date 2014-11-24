@@ -18,5 +18,5 @@
   "main": [
     "dist/ssrtojson.js"
   ],
-  "version": "1.1.4"
+  "version": "1.1.5"
 }
