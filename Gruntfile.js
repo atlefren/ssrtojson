@@ -19,7 +19,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'dist/ssrjson.min.js': ['<%= concat.core.dest %>']
+                    'dist/ssrtojson.min.js': ['<%= concat.core.dest %>']
                 }
             }
         },
