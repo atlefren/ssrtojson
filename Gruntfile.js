@@ -30,13 +30,17 @@ module.exports = function(grunt) {
                 commitMessage: 'Release <%= version %>'
             }
         },
-        bump: {
+/*        bump: {
             options: {
                 updateConfigs: ['pkg'],
                 commit: false,
                 createTag: false,
                 push: false
             }
+        },
+ */
+        build: {
+            tasks: ['default']
         },
         clean: {
             options: {
@@ -67,7 +71,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-release');
-    grunt.loadNpmTasks('grunt-bump');
+    //grunt.loadNpmTasks('grunt-bump');
+    grunt.loadNpmTasks('grunt-bump-build-git');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-git');
 
