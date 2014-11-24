@@ -25,11 +25,12 @@ module.exports = function(grunt) {
         },
         build: {
             tasks: ['default'],
-            gitAdd: '-all'
+            gitAdd: '--all'
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-bump-build-git');
 
     grunt.registerTask('default', ['concat', 'uglify']);
